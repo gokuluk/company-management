@@ -1,0 +1,6 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://free-tier4.aws-us-west-2.cockroachlabs.cloud:26257/company_db?options=--cluster%3Dsurvey-test-3266
+        username: gokul
+        password: pgGiyV_naTHBnHUNivPTLw
+        driver-class-name: org.postgresql.Driver
