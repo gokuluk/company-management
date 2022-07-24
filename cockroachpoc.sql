@@ -45,12 +45,12 @@ CREATE TABLE company
 )
 ;
 
-ALTER TABLE employee
-    ADD CONSTRAINT xfk_departmentkey_employee FOREIGN KEY (department_key) REFERENCES
-        department(department_key)
+ALTER TABLE department
+    ADD CONSTRAINT xfkcompanykey_department FOREIGN KEY (company_key)
+        REFERENCES company(company_key)
 ;
 
-ALTER TABLE department
-    ADD CONSTRAINT xfk_companykey_department FOREIGN KEY (department_key)
-        REFERENCES company(company_key)
+ALTER TABLE employee
+    ADD CONSTRAINT xfkdepartmentkey_employee FOREIGN KEY (department_key) REFERENCES
+        department(department_key)
 ;
