@@ -4,3 +4,11 @@ spring:
         username: gokul
         password: pgGiyV_naTHBnHUNivPTLw
         driver-class-name: org.postgresql.Driver
+    jpa:
+        open-in-view: false
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.CockroachDB201Dialect
+                hbm2ddl:
+                    auto: update
+        show-sql: true
