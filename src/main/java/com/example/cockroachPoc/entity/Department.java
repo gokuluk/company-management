@@ -41,4 +41,15 @@ public class Department implements Serializable {
     @JoinColumn(name = "company_key")
     private Company company;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Department)) return false;
+        return departmentKey != null && departmentKey.equals(((Department) o).getDepartmentKey());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

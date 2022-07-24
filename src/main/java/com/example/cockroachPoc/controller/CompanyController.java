@@ -1,7 +1,11 @@
 package com.example.cockroachPoc.controller;
 
+import com.example.cockroachPoc.dto.CompanyResponse;
 import com.example.cockroachPoc.entity.Company;
-import com.example.cockroachPoc.repository.CompanyRepository;
+import com.example.cockroachPoc.mapper.CompanyMapper;
+import com.example.cockroachPoc.service.CompanyService;
+import com.example.CockroachPoc.dto.CompanyRequest;
+import com.example.cockroachPoc.service.dto.CompanyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,20 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class CompanyController {
 
     @Autowired
-    private CompanyRepository companyRepository;
+    private CompanyMapper companyMapper;
+
+    @Autowired
+    private CompanyService companyService;
 
     @PostMapping(value = "/company")
-    public Company createSurvey(@RequestBody Company createQuestionnaireRequest) {
+    public CompanyResponse createSurvey(@RequestBody CompanyRequest createCompanyRequest) {
 
-        Company company = companyRepository.save(createQuestionnaireRequest);
-        return company;
+        CompanyDTO companyDTO = companyMapper.requestDtoToServiceDto(createCompanyRequest);
+        CompanyDTO company = companyService.createSurvey(companyDTO);
+        return companyMapper.serviceDtoToResponseDto(company);
     }
 
     @GetMapping(value = "/company/{companyId}")
-    public Company getSurvey(@PathVariable("companyId") String companyId) {
+    public CompanyResponse getSurvey(@PathVariable("companyId") String companyId) {
 
-        Company company = companyRepository.findById(companyId).orElse(null);
-        return company;
+        CompanyDTO companyDTO = companyService.getSurvey(companyId);
+        return companyMapper.serviceDtoToResponseDto(companyDTO);
     }
 
 }

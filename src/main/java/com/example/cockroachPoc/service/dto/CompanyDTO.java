@@ -1,12 +1,12 @@
-package com.example.CockroachPoc.dto;
+package com.example.cockroachPoc.service.dto;
 
-import com.example.cockroachPoc.dto.DepartmentRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 import java.util.List;
 
 @Getter
@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class CompanyRequest {
+public class CompanyDTO {
 
     private String companyKey;
 
@@ -27,6 +27,6 @@ public class CompanyRequest {
 
     private String description;
 
-    private List<DepartmentRequest> departments;
+    private List<DepartmentDTO> departments;
 
 }

@@ -40,4 +40,15 @@ public class Employee implements Serializable {
     @JoinColumn(name = "department_key")
     private Department department;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        return employeeKey != null && employeeKey.equals(((Employee) o).getEmployeeKey());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
