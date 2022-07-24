@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "company")
+@Table(name = "companys")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,6 +25,7 @@ public class Company implements Serializable {
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     private String companyKey;
 
+    @Version
     @Column(name = "version")
     private Long version;
 
@@ -43,8 +44,8 @@ public class Company implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Department)) return false;
-        return companyKey != null && companyKey.equals(((Department) o).getDepartmentKey());
+        if (!(o instanceof Company)) return false;
+        return companyKey != null && companyKey.equals(((Company) o).getCompanyKey());
     }
 
     @Override

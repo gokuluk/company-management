@@ -1,5 +1,5 @@
 
-CREATE TABLE employee
+CREATE TABLE employees
 (
     employee_key   VARCHAR(128) NOT NULL,
     permanent     BOOLEAN,
@@ -13,7 +13,7 @@ CREATE TABLE employee
 )
 ;
 
-CREATE TABLE department
+CREATE TABLE departments
 (
     department_key     VARCHAR(128) NOT NULL,
     description      VARCHAR(2048),
@@ -28,7 +28,7 @@ CREATE TABLE department
 )
 ;
 
-CREATE TABLE company
+CREATE TABLE companys
 (
     company_key      VARCHAR(128) NOT NULL,
     created_by            VARCHAR(255),
@@ -45,12 +45,12 @@ CREATE TABLE company
 )
 ;
 
-ALTER TABLE department
+ALTER TABLE departments
     ADD CONSTRAINT xfkcompanykey_department FOREIGN KEY (company_key)
-        REFERENCES company(company_key)
+        REFERENCES companys(company_key)
 ;
 
-ALTER TABLE employee
+ALTER TABLE employees
     ADD CONSTRAINT xfkdepartmentkey_employee FOREIGN KEY (department_key) REFERENCES
-        department(department_key)
+        departments(department_key)
 ;

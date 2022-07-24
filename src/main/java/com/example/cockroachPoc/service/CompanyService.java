@@ -8,6 +8,9 @@ import com.example.cockroachPoc.service.dto.CompanyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
+import java.util.Optional;
+
 @Component
 public class CompanyService {
 
@@ -27,8 +30,8 @@ public class CompanyService {
 
     public CompanyDTO getSurvey(String companyId) {
 
-        Company company = companyRepository.findById(companyId).orElse(null);
-        CompanyDTO companyResponse = companyMapper.entityToServiceDto(company);
+        Optional<Company> company = companyRepository.getByCompanyKey(companyId);
+        CompanyDTO companyResponse = companyMapper.entityToServiceDto(company.get());
         return companyResponse;
     }
 
