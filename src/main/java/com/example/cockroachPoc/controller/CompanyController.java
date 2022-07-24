@@ -1,7 +1,7 @@
-package com.example.CockroachPoc.controller;
+package com.example.cockroachPoc.controller;
 
-import com.example.CockroachPoc.entity.Company;
-import com.example.CockroachPoc.repository.CompanyRepository;
+import com.example.cockroachPoc.entity.Company;
+import com.example.cockroachPoc.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

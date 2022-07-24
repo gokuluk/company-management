@@ -1,4 +1,4 @@
-package com.example.CockroachPoc.mapper;
+package com.example.cockroachPoc.mapper;
 
 import org.mapstruct.Mapper;
 

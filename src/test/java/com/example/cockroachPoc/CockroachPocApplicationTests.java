@@ -1,4 +1,4 @@
-package com.example.CockroachPoc;
+package com.example.cockroachPoc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

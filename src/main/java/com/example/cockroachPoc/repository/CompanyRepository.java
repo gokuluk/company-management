@@ -1,6 +1,6 @@
-package com.example.CockroachPoc.repository;
+package com.example.cockroachPoc.repository;
 
-import com.example.CockroachPoc.entity.Company;
+import com.example.cockroachPoc.entity.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

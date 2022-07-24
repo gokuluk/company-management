@@ -1,4 +1,4 @@
-package com.example.CockroachPoc;
+package com.example.cockroachPoc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

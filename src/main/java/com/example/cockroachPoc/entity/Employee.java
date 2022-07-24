@@ -1,4 +1,4 @@
-package com.example.CockroachPoc.entity;
+package com.example.cockroachPoc.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
