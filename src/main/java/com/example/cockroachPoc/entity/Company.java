@@ -37,7 +37,7 @@ public class Company implements Serializable {
     @Column(name = "description",length = 2048)
     private String description;
 
-//    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Department> departments = new HashSet<>();
+
 }

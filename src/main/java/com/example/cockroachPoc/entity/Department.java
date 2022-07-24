@@ -34,12 +34,11 @@ public class Department implements Serializable {
     @Column(name = "description",length = 2048)
     private String description;
 
-//    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Employee> employees = new HashSet<>();
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_key")
     private Company company;
+
 }
