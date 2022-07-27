@@ -7,7 +7,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Entity
@@ -40,6 +43,36 @@ public class Company implements Serializable {
 
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Department> departments = new HashSet<>();
+
+    private void setDepartments(Set<Department> departments) {
+        this.departments = departments;
+    }
+
+    public Set<Department> getDepartments() {
+        return departments;
+    }
+
+    public void addDepartment(Department department) {
+        departments.add(department);
+        department.setCompany(this);
+    }
+
+    public void addDepartments(Collection<Department> departments) {
+        Optional.ofNullable(departments).orElseGet(Collections::emptyList).forEach(department -> {
+            addDepartment(department);
+        });
+    }
+
+    public void removeDepartment(Department department) {
+        departments.remove(department);
+        department.setCompany(null);
+    }
+
+    public void removeDepartments(Collection<Department> departments) {
+        Optional.ofNullable(departments).orElseGet(Collections::emptyList).forEach(department -> {
+            removeDepartment(department);
+        });
+    }
 
     @Override
     public boolean equals(Object o) {

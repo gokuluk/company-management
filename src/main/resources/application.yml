@@ -1,4 +1,47 @@
+
 spring:
+    profiles:
+        active: LIVE
+
+####################################################################################
+#
+#
+#     LOCAL profile
+#
+#
+####################################################################################
+---
+spring:
+    config:
+        activate:
+            on-profile: LOCAL
+    main:
+        allow-bean-definition-overriding: true
+    datasource:
+        driverClassName: org.h2.Driver
+        password: password
+        username: sa
+        url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: create
+        show-sql: true
+        properties:
+            hibernate.jdbc.batch_size: 50
+            hibernate.order_inserts: true
+            hibernate.order_updates: true
+            hibernate.generate_statistics: true
+            hibernate.jdbc.batch_versioned_data: true
+    h2:
+        console:
+            enabled: true
+
+---
+spring:
+    config:
+        activate:
+            on-profile: LIVE
     datasource:
         url: jdbc:postgresql://free-tier4.aws-us-west-2.cockroachlabs.cloud:26257/company_db?options=--cluster%3Dsurvey-test-3266
         username: gokul

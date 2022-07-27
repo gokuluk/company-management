@@ -62,6 +62,12 @@
 			<version>${mapstruct.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+			<!--  Change the scope to 'runtime' while running application locally  using h2 database  -->
+		</dependency>
 	</dependencies>
 
 

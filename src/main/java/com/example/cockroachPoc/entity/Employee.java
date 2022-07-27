@@ -25,7 +25,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Employee implements Serializable {
 
-    private static final long serialVersionUID = 7826178536624556624L;
+    private static final long serialVersionUID = 7826178536624556621L;
 
     @Id
     @Column(name = "employee_key", length = 128)
