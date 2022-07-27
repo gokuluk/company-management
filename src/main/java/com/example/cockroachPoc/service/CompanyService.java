@@ -33,4 +33,10 @@ public class CompanyService {
         return companyMapper.entityToServiceDto(company.get());
     }
 
+
+    public void deleteSurvey(String companyId) {
+
+        companyRepository.deleteById(companyId);
+    }
+
 }

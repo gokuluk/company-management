@@ -7,6 +7,7 @@ import com.example.cockroachPoc.service.CompanyService;
 import com.example.CockroachPoc.dto.CompanyRequest;
 import com.example.cockroachPoc.service.dto.CompanyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +36,11 @@ public class CompanyController {
 
         CompanyDTO companyDTO = companyService.getSurvey(companyId);
         return companyMapper.serviceDtoToResponseDto(companyDTO);
+    }
+    @DeleteMapping(value = "/company/{companyId}")
+    public void deleteSurvey(@PathVariable("companyId") String companyId) {
+
+        companyService.deleteSurvey(companyId);
     }
 
 }
